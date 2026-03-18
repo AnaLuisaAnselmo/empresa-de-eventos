@@ -36,8 +36,8 @@
 
 <?php
 
-require_once "C:/Turma2/xampp/htdocs/mvc/DB/Database.php";
-require_once "C:/Turma2/xampp/htdocs/mvc/Controller/EventoController.php";
+require_once "C:/Turma2/xampp/htdocs/empresa-de-eventos/mvc/DB/Database.php";
+require_once "C:/Turma2/xampp/htdocs/empresa-de-eventos/mvc/Controller/EventoController.php";
 
 $EventoController = new EventoController ($pdo);
 
@@ -53,7 +53,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
   $nome_do_evento = $_POST['nome_do_evento'];
     $descricao = $_POST['descricao'];
     $data = $_POST['data'];
-    $horario = $_POST['horarop'];
+    $horario = $_POST['horario'];
     $local = $_POST['local'];
     $num_max_parti = $_POST['num_max_parti'];
   

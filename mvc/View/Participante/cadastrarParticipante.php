@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastrar Usuario</title>
+    <title>Cadastrar Participante</title>
 </head>
 <body>
     
@@ -15,10 +15,10 @@
  <label for="email">Email: </label>
  <input type="email" name="email" required><br><br>
 
- <label for="senha">Senha: </label>
- <input type="password" name="senha" required><br><br>
+ <label for="senha">telefone: </label>
+ <input type="number" name="telefone" required><br><br>
 
- <input type="submit">
+ <input type="submit" value="Enviar">
 
  </form>
 
@@ -27,18 +27,18 @@
 
 <?php
 
-require_once "C:/Turma1/xampp/htdocs/mvc/Controller/UsuarioController.php";
-require_once "C:/Turma1/xampp/htdocs/mvc/DB/Database.php";
+require_once "C:/Turma2/xampp/htdocs/empresa-de-eventos/mvc/Controller/ParticipanteController.php";
+require_once "C:/Turma2/xampp/htdocs/empresa-de-eventos/mvc/DB/Database.php";
 
-$UsuarioController = new UsuarioController($pdo);
+$ParticipanteController = new ParticipanteController($pdo);
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
   $nome = $_POST['nome'];
   $email = $_POST['email'];
-  $senha = $_POST['senha'];
+  $telefone = $_POST['telefone'];
 
-  $UsuarioController -> cadastrar($nome,$email,$senha);
+  $ParticipanteController -> cadastrarParticipante($nome,$email,$telefone);
   header('Location: ../../index.php');
 
 }

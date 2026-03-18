@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastrar Inscrição</title>
+    <title>Cadastrar registro </title>
 </head>
 <body>
     
@@ -13,7 +13,7 @@
  <input type="number" name="id_evento" required><br><br>
 
  <label for="id_participantes">ID dos Participantes: </label>
- <input type="number" name="id_participantes" required><br><br>
+ <input type="number" name="id_participante" required><br><br>
 
  <input type="submit" value="Enviar">
 
@@ -24,17 +24,17 @@
 
 <?php
 
-require_once "C:/Turma2/xampp/htdocs/mvc/Controller/InscricaoController.php";
-require_once "C:/Turma2/xampp/htdocs/mvc/DB/Database.php";
+require_once "C:/Turma2/xampp/htdocs/empresa-de-eventos/mvc/Controller/AuxiliarController.php";
+require_once "C:/Turma2/xampp/htdocs/empresa-de-eventos/mvc/DB/Database.php";
 
-$InscricaoController = new InscricaoController() ($pdo);
+$AuxiliarController = new AuxiliarController($pdo);
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     $id_evento = $_POST['id_evento'];
-    $id_participantes = $_POST['id_participante'];
+    $id_participante = $_POST['id_participante'];
   
-    $InscricaoController -> cadastrarInscricao($id_envento, $id_participante);
+    $AuxiliarController -> cadastrarAuxiliar($id_evento, $id_participante);
     header('Location: ../../index.php');
   
   }

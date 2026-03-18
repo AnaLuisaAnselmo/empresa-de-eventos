@@ -1,6 +1,6 @@
 <?php
 
-class UsuarioModel {
+class ParticipanteModel {
     private $pdo;
 
     public function __construct(PDO $pdo){
@@ -8,37 +8,58 @@ class UsuarioModel {
     }
 
     public function buscarTodos(){
-        $stmt = $this->pdo->query('SELECT * FROM usuarios');
+        $stmt = $this->pdo->query('SELECT * FROM cadastro_participantes');
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function cadastrar ($nome, $email, $senha){
-        $sql = "INSERT INTO usuarios (nome, email, senha) VALUES (:nome, :email, :senha)";
+    public function cadastrarParticipante ($nome, $email, $telefone){
+        $sql = "INSERT INTO cadastro_participantes (nome, email, telefone) VALUES (:nome, :email, :telefone)";
         $stmt = $this ->pdo->prepare($sql);
         return $stmt->execute([
             ':nome'=> $nome,
             ':email'=> $email,
-            ':senha'=> $senha
+            ':telefone'=> $telefone
         ]);
     }
 
-    public function buscarUsuario($id){
-        $stmt = $this->pdo->query("SELECT * FROM usuarios WHERE id = $id");
+    public function buscarParticipante($id){
+        $stmt = $this->pdo->query("SELECT * FROM cadastro_participantes WHERE id = $id");
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function editar ($nome, $email, $senha, $id){
-        $sql = "UPDATE usuarios SET nome=?, email=?, senha=? WHERE id=?";
+    public function editarParticipante ($nome, $email, $telefone, $id){
+        $sql = "UPDATE cadastro_participantes SET nome=?, email=?, telefone=? WHERE id=?";
         $stmt = $this->pdo->prepare($sql);
-        return$stmt->execute([$nome, $email, $senha, $id]);
+        return$stmt->execute([$nome, $email, $telefone, $id]);
     }
 
     
-    public function deletar ($id){
-        $sql = "DELETE FROM usuarios WHERE id = ?";
+    public function deletarParticipante ($id){
+        $sql = "DELETE FROM cadastro_participantes WHERE id = ?";
         $stmt = $this ->pdo->prepare($sql);
         return $stmt->execute([$id]);
     }
+
+    public function buscarPorId($id){
+    $sql = "SELECT * FROM cadastro_participantes WHERE id = :id";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->execute([':id' => $id]);
+
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+
+public function login($email){
+    $sql = "SELECT * FROM cadastro_participantes
+            WHERE email = :email ";
+
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->execute([
+        ':email' => $email
+      
+    ]);
+
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
 
     
 }

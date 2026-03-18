@@ -1,14 +1,14 @@
 <?php
 
-require_once "C:/Turma1/xampp/htdocs/mvc/DB/Database.php";
-require_once "C:/Turma1/xampp/htdocs/mvc/Controller/UsuarioController.php";
+require_once "C:/Turma2/xampp/htdocs/empresa-de-eventos/mvc/DB/Database.php";
+require_once "C:/Turma2/xampp/htdocs/empresa-de-eventos/mvc/Controller/ParticipanteController.php";
 
-$UsuarioController = new UsuarioController($pdo);
+$ParticipanteController = new ParticipanteController($pdo);
 
 if(isset($_GET['id'])){
 
     $id = $_GET['id'];
-    $usuario = $UsuarioController->buscarUsuario($id);
+    $participante= $ParticipanteController->buscarParticipante($id);
 
 
 ?>
@@ -18,22 +18,22 @@ if(isset($_GET['id'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar Usuario</title>
+    <title>Editar Participante</title>
 </head>
 <body>
     
 <form method="post">
 
     <label for="nome">Nome: </label>
-    <input type="text" name="nome" value="<?=$usuario['nome'];?>" required><br><br>
+    <input type="text" name="nome"  required><br><br>
 
     <label for="email">Email: </label>
-    <input type="email" name="email" value="<?=$usuario['email'];?>" required><br><br>
+    <input type="email" name="email"  required><br><br>
 
-     <label for="senha">Senha: </label>
-    <input type="password" name="senha" value="<?=$usuario['senha'];?>" required><br><br>
+     <label for="senha">Telefone: </label>
+    <input type="password" name="telefone" required><br><br>
 
-    <input type="submit">
+    <input type="submit" value="Enviar">
 
 </form>
 
@@ -43,15 +43,15 @@ if(isset($_GET['id'])){
 <?php
 
 }else{
-    header('Location: listar.php');
+    header('Location: listarParticipante.php');
 }
 
 if($_SERVER['REQUEST_METHOD']=='POST'){
     $nome = $_POST['nome'];
     $email = $_POST['email'];
-    $senha = $_POST['senha'];
+    $telefone = $_POST['telefone'];
 
-    $UsuarioController->editar($nome, $email, $senha, $id);
+    $ParticipanteController->editarParticipante($nome, $email, $telefone, $id);
 
     header('Location: ../../index.php');
 }

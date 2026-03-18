@@ -1,35 +1,35 @@
 <?php
 
-require_once "C:/Turma1/xampp/htdocs/empresa-de-eventos/mvc/Model/ParticipanteModel.php";
+require_once "C:/Turma2/xampp/htdocs/empresa-de-eventos/mvc/Model/ParticipanteModel.php";
 
-class ProdutoController{
+class ParticipanteController{
 
-    private $ProdutoModel;
+    private $ParticipanteModel;
 
     public function __construct($pdo){
-        $this->ProdutoModel = new ProdutoModel( $pdo);
+        $this->ParticipanteModel = new ParticipanteModel( $pdo);
     }
 
-    public function listarProduto (){
-        $produtos = $this->ProdutoModel->buscarTodos();
-        include_once "C:/Turma1/xampp/htdocs/mvc/View/Produto/listarProduto.php";
+    public function listarParticipante (){
+        $participantes = $this->ParticipanteModel->buscarTodos();
+        include_once "C:/Turma2/xampp/htdocs/empresa-de-eventos/mvc/View/Participante/listarParticipante.php";
         return;
     }
-    public function cadastrarProduto ($nome, $descricao, $quantidade, $codigo_barra, $preco){
-        return $this->ProdutoModel-> cadastrarProduto($nome, $descricao, $quantidade, $codigo_barra, $preco);
+    public function cadastrarParticipante ($nome, $email, $telefone ){
+        return $this->ParticipanteModel-> cadastrarParticipante($nome, $email, $telefone);
     }
 
-    public function editarProduto ($nome, $descricao, $quantidade, $codigo_barra, $preco, $id){
-        $this->ProdutoModel->editarProduto($nome, $descricao, $quantidade, $codigo_barra, $preco, $id);
+    public function editarParticipante ($nome, $email, $telefone, $id){
+        $this->ParticipanteModel->editarParticipante($nome, $email, $telefone, $id);
     }   
 
-    public function buscarProduto($id){
-        return $this->ProdutoModel->buscarProduto($id); 
+    public function buscarParticipante($id){
+        return $this->ParticipanteModel->buscarParticipante($id); 
     }
 
-    public function deletarProduto ($id){
-        $produto = $this->ProdutoModel->deletarProduto($id); 
-        return $produto;
+    public function deletarParticipante ($id){
+        $participante = $this->ParticipanteModel->deletarParticipante($id); 
+        return $participante;
 
     }
 
