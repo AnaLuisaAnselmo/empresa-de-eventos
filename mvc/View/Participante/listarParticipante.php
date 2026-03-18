@@ -7,7 +7,7 @@
        }
 
        echo"<table border='1' cellpading = '5' cellspacing='0'>";
-       echo "<tr><td><a href ='View/Participante/cadastrarParticipante.php'>Cadastrar</a></td> <th>PARTICIPANTES</th></tr>";
+       echo "<tr><th>PARTICIPANTES</th><td><a href ='View/Participante/cadastrarParticipante.php'>Cadastrar</a></td> </tr>";
        echo "<tr> <th>ID</th> <th>Nome</th> <th>Email</th> <th>Telefone</th> <th>Ações</th> </tr>";
 
        foreach($participantes as $participante){
