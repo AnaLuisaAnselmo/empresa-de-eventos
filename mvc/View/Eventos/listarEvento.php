@@ -21,9 +21,9 @@ $id_participante = $_SESSION['id_participante'] ?? null;
         return;
        }
 
-       echo"<table border='1' cellpading = '5' cellspacing='0'>";
-       echo "<tr></td> <th>EVENTO</th><td><a href ='View/Eventos/cadastrarEvento.php'>Cadastrar</a> </tr> ";
-       echo "<tr> <th>ID</th> <th>Nome do Evento</th> <th>Descrição</th> <th>Data</th> <th>Horário</th> <th>Local</th> <th>Núm. Máx. de Parti.</th> <th>Ações</th> </tr>";
+       echo"<table >";
+       echo "<tr class='primeiralinha'><th><a href ='View/Eventos/cadastrarEvento.php'>Cadastrar</a></th><th colspan='7'>EVENTOS</th></tr>";
+       echo "<tr> <th>ID</th> <th>Nome do Evento</th> <th>Descrição</th> <th>Data</th> <th>Horário</th> <th>Local</th> <th>Núm. Máx. de Parti.</th> <th>Ações</th> </tr></div>";
 
        foreach($eventos as $evento){
         $id = $evento['id'];

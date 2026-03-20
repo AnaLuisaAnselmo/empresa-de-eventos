@@ -6,8 +6,8 @@
         return;
        }
 
-       echo"<table border='1' cellpading = '5' cellspacing='0'>";
-       echo "<tr><th>TABELA AUXILIAR</th> <td><a href ='View/Auxiliar/cadastrarAuxiliar.php'>Cadastrar</a></td> </tr> ";
+       echo"<table>";
+       echo "<tr class='primeiralinha'><th><a href ='View/Auxiliar/cadastrarAuxiliar.php'>Cadastrar</a></th> <th colspan='7' >TABELA AUXILIAR</th> </tr> ";
        echo "<tr> <th>ID</th> <th>ID Evento</th> <th>ID Participante</th> <th>Ações</th> ";
 
        foreach($auxiliares as $auxiliar){

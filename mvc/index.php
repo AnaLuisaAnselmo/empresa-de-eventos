@@ -12,9 +12,10 @@
 </html>
 
 <?php
+ 
+ echo"<a href='login.php'>🠔Login</a>";
 
-
-echo"<h1> Empresas de Eventos </h1>";
+echo"<h1> Empresa de Eventos </h1>";
 
 require_once "DB/Database.php";
 require_once "Controller/EventoController.php";
