@@ -26,13 +26,13 @@ if(isset($_GET['id'])){
 <form method="post">
 
     <label for="nome">Nome: </label>
-    <input type="text" name="nome"  required><br><br>
+    <input type="text" name="nome" value="<?= isset($participante['nome']) ? $participante['nome'] : '' ?>" required><br><br>
 
     <label for="email">Email: </label>
-    <input type="email" name="email"  required><br><br>
+    <input type="email" name="email" value="<?= isset($participante['email']) ? $participante['email'] : '' ?>" required><br><br>
 
      <label for="senha">Telefone: </label>
-    <input type="password" name="telefone" required><br><br>
+    <input type="password" name="telefone" value="<?= isset($participante['telefone']) ? $participante['telefone'] : '' ?>" required><br><br>
 
     <input type="submit" value="Enviar">
 

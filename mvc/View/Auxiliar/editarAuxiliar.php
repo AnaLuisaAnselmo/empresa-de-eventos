@@ -26,10 +26,10 @@ if(isset($_GET['id'])){
 <form method="post">
     
  <label for="nome">ID do Evento: </label>
- <input type="number" name="id_evento"  required><br><br>
+ <input type="number" name="id_evento" value="<?= isset($usuario['id_evento']) ? $usuario['id_participante'] : '' ?>" required><br><br>
 
  <label for="descricao">ID do Participanete: </label>
- <input type="number" name="id_participantes" required><br><br>
+ <input type="number" name="id_participantes" value="<?= isset($usuario['id_participante']) ? $usuario['id_participante'] : '' ?>" required><br><br>
 
  <input type="submit" value="Enviar">
 
