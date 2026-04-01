@@ -21,6 +21,7 @@ require_once "DB/Database.php";
 require_once "Controller/EventoController.php";
 require_once "Controller/AuxiliarController.php";
 require_once "Controller/ParticipanteController.php";
+require_once "Controller/PalestranteController.php";
 
 $eventoController = new EventoController($pdo);
 $eventos = $eventoController->listarEvento();
@@ -29,6 +30,14 @@ echo "<br><br>";
 
 $ParticipanteController = new ParticipanteController($pdo);
 $participantes = $ParticipanteController->listarParticipante($pdo);
+
+echo "<br><br>";
+
+$PalestranteController = new PalestranteController($pdo);
+$palestrantes = $PalestranteController->listarPalestrante();
+
+echo "<br><br>";
+
 
 $AuxiliarController = new AuxiliarController($pdo);
 $auxiliares = $AuxiliarController->listarAuxiliar();
